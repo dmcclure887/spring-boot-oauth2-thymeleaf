@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Secured Page</title>
+</head>
+<body>
+  <h1>Secured Page</h1>
+
+  <b>User claims</b><br>
+  <tr th:each="instance : ${#authentication.getPrincipal().getUserInfo().getClaims()}">
+    <td th:text="${instance.key}">keyvalue</td>
+    <td>:</td>
+    <td th:text="${instance.value}">num</td>
+    <br>
+  </tr>
+</body>
+<footer>
+  </br>
+  <a href="/">Back</a> <br>
+  <a href="logout">Logout</a>
+</footer>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Spring Security SSO</title>
+</head>
+<body>
+  <h1>Spring Security SSO</h1>
+  <div class="nav-item"th:if="${#authorization.expression('isAuthenticated()')}">
+    <a style="color:green;">User status: Logged in</a>
+  </div>
+  <div class="nav-item"th:unless="${#authorization.expression('isAuthenticated()')}">
+    <a style="color:red;">User status: Logged out</a> <br>
+    <a href="securedPage">Login</a>
+  </div>
+  <!--/* If the user is logged in, show the profile link */-->
+  <div class="nav-item"th:if="${#authorization.expression('isAuthenticated()')}">
+    <a href="logout">Logout</a> <br>
+    <a href="securedPage">securedPage</a> <br>
+    <a href="error">Error sample page</a>
+  </div>
+</body>
+</html>
